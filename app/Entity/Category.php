@@ -8,8 +8,8 @@
  */
 namespace App\Entity;
 use Illuminate\Database\Eloquent\Model;
-class Categroy extends Model
+class Category extends Model
 {
-    protected $table = 'categroy';
+    protected $table = 'category';
     protected $primaryKey = 'id';
 }

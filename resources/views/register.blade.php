@@ -8,13 +8,7 @@
  --}}
 
 @extends('master')
-
-
-
 @section('title','注册')
-
-
-
 @section('content')
     <div class="page__bd">
     <div class="weui-cells__title">注册方式</div>
@@ -108,6 +102,7 @@
 
 @section('my-js')
     <script type="text/javascript">
+
         //这里利用jquery的点击函数，点一下验证码图片，就会自动刷新。为了防止浏览器从缓存中读取图片，所以要为此添加
         //随机数
         //获取图片路径

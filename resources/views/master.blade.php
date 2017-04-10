@@ -15,12 +15,53 @@
     <link rel="stylesheet" href="css/book.css" type="text/css">
 </head>
 <body>
+    <div class="bk_title_bar">
+        <img class="bk_back" src="img/back.png" alt="" onclick="history.go(-1)">
+        <p class="bk_title_content"></p>
+        <img class="bk_menu" src="img/menu.png" alt="" id="showIOSActionSheet">
+    </div>
     <div class="page">
         @yield('content')
+    </div>
+    <!--BEGIN actionSheet-->
+    <div>
+        <div class="weui-mask" id="iosMask" style="display: none"></div>
+        <div class="weui-actionsheet" id="iosActionsheet">
+            <div class="weui-actionsheet__menu">
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+            </div>
+            <div class="weui-actionsheet__action">
+                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+            </div>
+        </div>
     </div>
     <!-- tooltips -->
     <div class="bk_toptips"><span></span></div>
 </body>
 <script src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var $iosActionsheet = $('#iosActionsheet');
+        var $iosMask = $('#iosMask');
+
+        function hideActionSheet() {
+            $iosActionsheet.removeClass('weui-actionsheet_toggle');
+            $iosMask.fadeOut(200);
+        }
+
+        $iosMask.on('click', hideActionSheet);
+        $('#iosActionsheetCancel').on('click', hideActionSheet);
+        $("#showIOSActionSheet").on("click", function(){
+            $iosActionsheet.addClass('weui-actionsheet_toggle');
+            $iosMask.fadeIn(200);
+        });
+    });
+    //将标题栏和标题保持一致
+    $('.bk_title_content').html(document.title);
+</script>
+
 @yield('my-js')
 </html>

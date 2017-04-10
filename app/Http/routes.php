@@ -20,9 +20,8 @@ Route::get('/', function () {
 Route::any('login/', 'View\MemberController@toLogin');
 Route::any('register/', 'View\MemberController@toRegister');
 
-Route::get('categroy', function () {
-    return view('categroy');
-});
+Route::get('category/','View\BookController@toCategory');
+Route::get('product/category_id/{category_id}','View\BookController@toProduct');
 
 //路由分组-url前缀
 //路由分组是为了便于后期管理
@@ -35,4 +34,6 @@ Route::group(['prefix' => 'service'], function () {
     Route::post('register', 'Service\MemberController@register');
     Route::post('login', 'Service\MemberController@login');
     Route::post('validate_email', 'Service\ValidateCodeController@validateEmail');
+    //{}由于ajax要传入一个parent_id,所以这里就可以用一个括号来表示后面传的参数。 这个参数是控制器中获取的参数
+    Route::get('category/parent_id/{parent_id}', 'Service\BookController@getCategoryByParentId');
 });
