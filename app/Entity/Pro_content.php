@@ -10,6 +10,6 @@ namespace App\Entity;
 use Illuminate\Database\Eloquent\Model;
 class Pro_content extends Model
 {
-    protected $table = 'pro_tent';
+    protected $table = 'pro_content';
     protected $primaryKey = 'id';
 }

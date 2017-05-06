@@ -159,7 +159,7 @@
                     }, 2000);
 
                     //跳转页面建议放在视图中进行跳转 最好不要放在控制器中
-                    location.href="categroy";
+                    location.href="{{$return_url}}";
                 },
                 error: function (xhr, status, error) {
                     console.log(xhr);
